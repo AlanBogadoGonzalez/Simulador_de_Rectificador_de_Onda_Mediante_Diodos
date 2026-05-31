@@ -42,12 +42,6 @@ public class RectificadorOndaCompleta extends CircuitoRectificador implements Se
         return Math.max( getVoltajeEntradaPico() - 2.0 * puente[0].getVd(), 0.0 );   //Vprect = Vp − 2·Vd
     }
  
-    private double calcularVdPromedio() {
-        double suma = 0.0;
-        for (Diodo di : puente) suma += di.getVd();
-        return suma / N_DIODOS;
-    }
- 
     @Override
     public double calcularVdc() {
         double vpRect = calcularVpRect();
@@ -111,7 +105,7 @@ public class RectificadorOndaCompleta extends CircuitoRectificador implements Se
         int n = N_PUNTOS;
         double f = getFrecuencia();
         double vp = getVoltajeEntradaPico();
-        double vd = calcularVdPromedio();
+        double vd = puente[0].getVd();
         double tMax = 3.0 / f;
  
         double[][] resultado = new double[3][n];
@@ -157,7 +151,7 @@ public class RectificadorOndaCompleta extends CircuitoRectificador implements Se
         params.put("Ripple", calcularRipple());
         params.put("Eficiencia", calcularEficiencia());
         params.put("Potencia", calcularPotenciaCarga());
-        params.put("Vd", calcularVdPromedio());
+        params.put("Vd", puente[0].getVd());
         
         return params;
     }

@@ -21,10 +21,4 @@ public abstract class ComponenteElectrico {
         }
         this.nombre = nombre;
     }
-
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " [" + nombre + "]";
-    }
 }

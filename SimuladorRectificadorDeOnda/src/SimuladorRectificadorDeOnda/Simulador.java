@@ -36,6 +36,11 @@ public class Simulador {
     }    
     
     // Métodos
+    private void validarCircuito() {
+        if (circuito == null)
+            throw new IllegalStateException("No hay circuito configurado.");
+    }    
+    
     public double[][] ejecutar() {
         validarCircuito();
         resultados = circuito.simular();
@@ -46,11 +51,5 @@ public class Simulador {
         validarCircuito();
         return circuito.getParametros();
     }
- 
-    private void validarCircuito() {
-        if (circuito == null)
-            throw new IllegalStateException("No hay circuito configurado.");
-    }
- 
 
 }

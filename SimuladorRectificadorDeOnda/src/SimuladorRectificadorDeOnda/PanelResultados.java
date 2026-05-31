@@ -16,19 +16,17 @@ public class PanelResultados extends JPanel {
     private JLabel lblPotencia;
     private JLabel lblVd;
  
-    private static final String SIN_DATO = "---";
- 
     public PanelResultados() {
         inicializarComponentes();
         construirLayout();
     }
  
     private void inicializarComponentes() {
-        lblVdc = new JLabel(SIN_DATO);
-        lblRipple = new JLabel(SIN_DATO);
-        lblEficiencia = new JLabel(SIN_DATO);
-        lblPotencia = new JLabel(SIN_DATO);
-        lblVd = new JLabel(SIN_DATO);
+        lblVdc = new JLabel("---");
+        lblRipple = new JLabel("---");
+        lblEficiencia = new JLabel("---");
+        lblPotencia = new JLabel("---");
+        lblVd = new JLabel("---");
     }
  
     private void construirLayout() {
@@ -59,18 +57,18 @@ public class PanelResultados extends JPanel {
         Double pot = params.get("Potencia");
         Double vd = params.get("Vd");
  
-        lblVdc.setText( vdc  != null ? String.format("%.3f", vdc) : SIN_DATO);
-        lblRipple.setText( rip  != null ? String.format("%.3f", rip) : SIN_DATO);
-        lblEficiencia.setText(ef != null ? String.format("%.2f", ef * 100.0) : SIN_DATO);
-        lblPotencia.setText( pot != null ? String.format("%.4f", pot) : SIN_DATO);
-        lblVd.setText( vd != null ? String.format("%.2f", vd) : SIN_DATO);
+        lblVdc.setText( vdc  != null ? String.format("%.3f", vdc) : "---");
+        lblRipple.setText( rip  != null ? String.format("%.3f", rip) : "---");
+        lblEficiencia.setText(ef != null ? String.format("%.2f", ef * 100.0) : "---");
+        lblPotencia.setText( pot != null ? String.format("%.4f", pot) : "---");
+        lblVd.setText( vd != null ? String.format("%.2f", vd) : "---");
     }
  
     public void limpiar() {
-        lblVdc.setText(SIN_DATO);
-        lblRipple.setText(SIN_DATO);
-        lblEficiencia.setText(SIN_DATO);
-        lblPotencia.setText(SIN_DATO);
-        lblVd.setText(SIN_DATO);
+        lblVdc.setText("---");
+        lblRipple.setText("---");
+        lblEficiencia.setText("---");
+        lblPotencia.setText("---");
+        lblVd.setText("---");
     }
 }

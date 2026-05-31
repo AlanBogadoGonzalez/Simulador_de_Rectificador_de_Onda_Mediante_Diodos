@@ -20,11 +20,11 @@ public class VentanaPrincipal extends JFrame {
  
     // Componentes
     private PanelConfiguracion panelConfig;
-    private PanelFormasDeOnda  panelGrafica;
-    private PanelResultados    panelResultados;
+    private PanelFormasDeOnda panelGrafica;
+    private PanelResultados panelResultados;
  
     // Dominio
-    private Simulador      simulador;
+    private Simulador simulador;
     private GestorArchivos gestor;
  
     // Botones
@@ -33,12 +33,10 @@ public class VentanaPrincipal extends JFrame {
     private JButton btnCargar;
     private JButton btnLimpiar;
  
-    // Barra de estado
-    private JLabel lblEstado;
  
     public VentanaPrincipal() {
         simulador = new Simulador();
-        gestor    = new GestorArchivos();
+        gestor = new GestorArchivos();
         inicializarComponentes();
         construirLayout();
         configurarVentana();
@@ -75,8 +73,8 @@ public class VentanaPrincipal extends JFrame {
         panelDer.add(panelResultados, BorderLayout.SOUTH);
         panelResultados.setPreferredSize(new Dimension(0, 160));
 
-        add(panelIzq,    BorderLayout.WEST);
-        add(panelDer,    BorderLayout.CENTER);
+        add(panelIzq, BorderLayout.WEST);
+        add(panelDer, BorderLayout.CENTER);
         
     }
  
