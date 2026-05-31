@@ -22,7 +22,7 @@ En ambos casos, el sistema permite agregar un capacitor de filtro en paralelo co
 
 # Características
 - Simulación de rectificador de media onda con un diodo.
-- Simulación de rectificador de onda completa con puente de Graetz de cuatro diodos.
+- Simulación de rectificador de onda completa con puente de Graetz de cuatro diodos. En el apartado de los circuitos dejé la posibilidad de añadir nombres y voltajes individuales a los diodos para posibles mejoras o implementaciones futuras, la idea es poder mostrar el circuito al usuario.
 - Filtrado opcional con capacitor de filtro — muestra el rizado real por carga y descarga exponencial del capacitor, no una señal DC plana.
 - Cálculo de parámetros: Vdc, Vripple, Eficiencia, Potencia en carga y Vd, con fórmulas distintas para el caso con y sin filtro.
 - Visualización gráfica de Vin(t) y Vout(t) con nivel Vdc como referencia.
