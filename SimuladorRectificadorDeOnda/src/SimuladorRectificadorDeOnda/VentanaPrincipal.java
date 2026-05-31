@@ -148,7 +148,6 @@ public class VentanaPrincipal extends JFrame {
             } else {
                 gestor.exportarTxt(ruta, panelConfig.getValores());
             }
-            lblEstado.setText("Guardado en: " + ruta);
             JOptionPane.showMessageDialog(this, "Guardado correctamente.", "Ok", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "Error al guardar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -168,7 +167,7 @@ public class VentanaPrincipal extends JFrame {
             } else {
                 panelConfig.setValores(gestor.importarTxt(ruta));
             }
-            lblEstado.setText("Cargado desde: " + ruta);
+            
             JOptionPane.showMessageDialog(this, "Cargado correctamente.", "Ok", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException | ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, "Error al cargar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -180,7 +179,7 @@ public class VentanaPrincipal extends JFrame {
         panelGrafica.limpiar();
         panelResultados.limpiar();
         simulador = new Simulador();
-        lblEstado.setText("Listo.");
+        
     }
  
     public static void main(String[] args) {
