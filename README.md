@@ -30,6 +30,69 @@ En ambos casos, el sistema permite agregar un capacitor de filtro en paralelo co
 - Validación de entradas con mensajes de error al usuario.
 - Interfaz gráfica con Swing.
 
+## Diagrama UML
+<img width="2030" height="1510" alt="UML" src="https://github.com/user-attachments/assets/3d8c811f-251f-4bb1-815b-f994b9b75f71" />
+
+## Interfaz Gráfica
+<img width="986" height="611" alt="Onda_Completa_Sin_Filtro" src="https://github.com/user-attachments/assets/1d757ffd-9c17-4266-ba11-44727306498b" />
+<img width="987" height="611" alt="Onda_Completa_Con_Filtro" src="https://github.com/user-attachments/assets/6b765c92-2a92-42b8-96ed-adef5ffee364" />
+<img width="983" height="611" alt="Media_Onda_Sin_Filtro" src="https://github.com/user-attachments/assets/6d075a02-a16e-4698-b1c6-9d52c08d6293" />
+<img width="984" height="610" alt="Media_Onda_Con_Filtro" src="https://github.com/user-attachments/assets/c7394486-0384-43c7-a4d6-a41aa8a6ae4f" />
+
+## Formato del archivo de configuración (.txt)
+
+```
+# Configuración del simulador de circuitos rectificadores
+tipo=0
+vp=12.0
+frecuencia=60.0
+rl=10.0
+vd=0.7
+filtro=true
+c=1000.0
+```
+
+## Fundamento matemático
+
+La señal de entrada es senoidal:
+
+```
+Vin(t) = Vp · sin(2π · f · t)
+```
+
+El capacitor de filtro, cuando el diodo no conduce, se descarga exponencialmente:
+
+```
+Vc(t) = Vc · e^(−Δt / τ)     donde  τ = RL · C
+```
+
+---
+
+### Rectificador de media onda
+
+|  | Sin filtro | Con filtro |
+|---|---|---|
+| **Vp.rect** | `Vp − Vd` | `Vp − Vd` |
+| **Vripple** | `Vp.rect` | `Vp.rect / (f · RL · C)` |
+| **Vdc** | `Vp.rect / π` | `Vp.rect − Vripple / 2` |
+| **η** | `4 / π²` | `Vdc² / (Vdc² + Vripple² / 12)` |
+| **P_RL** | `Vp.rect² / (4RL)` | `Vdc² / RL + Vripple² / (12RL)` |
+
+---
+
+### Rectificador de onda completa — Puente de Graetz
+
+|  | Sin filtro | Con filtro |
+|---|---|---|
+| **Vp.rect** | `Vp − 2·Vd` | `Vp − 2·Vd` |
+| **Vripple** | `Vp.rect` | `Vp.rect / (2·f · RL · C)` |
+| **Vdc** | `2 · Vp.rect / π` | `Vp.rect − Vripple / 2` |
+| **η** | `8 / π²` | `Vdc² / (Vdc² + Vripple² / 12)` |
+| **P_RL** | `Vprect² / RL` | `Vdc² / RL + Vripple² / (12RL)` |
+
+---
+
+
 # Páginas de interés
 - Para entender el funcionamiento de los rectificadores: https://youtu.be/jzibrKq4ing?si=MlmV7KyCYzfAILu7
 - Para entender el funcionamiento del rectificador de media onda: https://youtu.be/164CzATS5K0?si=EdFTdzka64azdZlt
